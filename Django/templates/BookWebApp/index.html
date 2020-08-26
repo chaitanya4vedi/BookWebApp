@@ -1,0 +1,650 @@
+
+
+{% extends "BookWebApp/base.html" %}
+<!-- Add your site or application content here -->{% block content %}
+
+<!-- Local CS -->
+<link rel="stylesheet" href="../../static/BookWebApp/css/main.css" type="text/css">
+
+<!-- Login Modal here -->
+<div id="loginModal" class="modal fade" role="dialog">
+   <div class="modal-dialog modal-lg" role="content">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Login </h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+         </div>
+         <div class="modal-body">
+            <form>
+               <div class="form-row">
+                  <div class="form-group col-sm-4">
+                     <label class="sr-only" for="Email3">Email address</label>
+                     <input type="email" class="form-control form-control-sm mr-1" id="Email3" placeholder="Enter email">
+                  </div>
+                  <div class="form-group col-sm-4">
+                     <label class="sr-only" for="Password3">Password</label>
+                     <input type="password" class="form-control form-control-sm mr-1" id="Password3" placeholder="Password">
+                  </div>
+                  <div class="col-sm-auto">
+                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label">Remember me</label>
+                     </div>
+                  </div>
+               </div>
+               <div class="form-row">
+                  <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- Register Modal goes here -->
+<div id="registerModal" class="modal fade" role="dialog">
+   <div class="modal-dialog modal-lg" role="content">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title">Register</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+         </div>
+         <div class="modal-body">
+            <form>
+               <div class="form-row">
+                  <div class="form-group col-sm-4">
+                     <label class="sr-only" for="email1">Email address</label>
+                     <input type="email" class="form-control form-control-sm mr-1" id="email1" placeholder="Enter email...">
+                  </div>
+                  <div class="form-group col-sm-4">
+                     <label class="sr-only" for="password1">Password</label>
+                     <input type="password" class="form-control form-control-sm mr-1" id="password1" placeholder="Password...">
+                  </div>
+                  <div class="form-group col-sm-4">
+                     <label class="sr-only" for="password2">Password</label>
+                     <input type="password" class="form-control form-control-sm mr-1" id="password2" placeholder="Re-Enter Password...">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <label for="firstname1" class="col-md-2 col-form-label"><i class="fa fa-user"></i> First Name</label>
+                  <div class="col-md-10">
+                     <input type="text" class="form-control" id="firstname1" name="firstname" placeholder="First Name">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <label for="lastname1" class="col-md-2 col-form-label"><i class="fa fa-user"></i> Last Name</label>
+                  <div class="col-md-10">
+                     <input type="text" class="form-control" id="lastname1" name="lastname" placeholder="Last Name">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <label for="telnum1" class="col-12 col-md-2 col-form-label"><i class="fa fa-address-book-o"></i> Contact</label>
+                  <div class="col-5 col-md-3">
+                     <input type="tel" class="form-control" id="tel1" name="areacode" placeholder="Country Code">
+                  </div>
+                  <div class="col-7 col-md-7">
+                     <input type="tel" class="form-control" id="telnum1" name="telnum" placeholder="Phone Number">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <label for="street" class="col-md-2 col-form-label"><i class="fa fa-bicycle"></i> Street</label>
+                  <div class="col-md-10">
+                     <input type="text" class="form-control" id="street" name="street" placeholder="Street">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <label for="address" class="col-12 col-md col-form-label"><i class="fa fa-address-book"></i> Address</label>
+                  <div class="col col-md-5">
+                     <input type="tel" class="form-control" id="address" name="state1" placeholder="State/Province">
+                  </div>
+                  <div class="col col-md-3">
+                     <input type="tel" class="form-control" id="city" name="city1" placeholder="City">
+                  </div>
+                  <div class="col col-md-2">
+                     <input type="tel" class="form-control" id="pin" name="pin1" placeholder="Pin">
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="modal-footer">
+            <div class="container text-center">
+               <div class="col-12 col-sm "> <a class="btn btn-secondary" data-dismiss="modal" type="button" role="button"><span class="fa fa-close">Cancel</span></a>
+                  <a class="btn btn-success" data-toggle="modal" type="submit" role="button"><span class="fa fa-check">Submit</span></a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- ORDER Modal goes here -->
+<div id="orderModal" class="modal fade" role="dialog">
+   <div class="modal-dialog modal-lg" role="content">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title"><i class="fa fa-money"></i> Place Order [COD]</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+         </div>
+         <div class="modal-body">
+            <form>
+               <div class="form-group row">
+                  <label for="email2" class="col-md-2 col-form-label"><i class="fa fa-envelope"></i> Email</label>
+                  <div class="col-md-10">
+                     <input type="text" class="form-control" id="email2" name="email" placeholder="Email">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <label for="firstname2" class="col-md-2 col-form-label"><i class="fa fa-user"></i> First Name</label>
+                  <div class="col-md-10">
+                     <input type="text" class="form-control" id="firstname2" name="firstname" placeholder="First Name">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <label for="lastname2" class="col-md-2 col-form-label"><i class="fa fa-user"></i> Last Name</label>
+                  <div class="col-md-10">
+                     <input type="text" class="form-control" id="lastname2" name="lastname" placeholder="Last Name">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <label for="telnum2" class="col-12 col-md-2 col-form-label"><i class="fa fa-address-book-o"></i> Contact</label>
+                  <div class="col-5 col-md-3">
+                     <input type="tel" class="form-control" id="tel2" name="areacode" placeholder="Country Code">
+                  </div>
+                  <div class="col-7 col-md-7">
+                     <input type="tel" class="form-control" id="telnum2" name="telnum" placeholder="Phone Number">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <label for="street" class="col-md-2 col-form-label"><i class="fa fa-bicycle"></i> Street</label>
+                  <div class="col-md-10">
+                     <input type="text" class="form-control" id="street2" name="street" placeholder="Street">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <label for="address" class="col-12 col-md col-form-label"><i class="fa fa-address-book"></i> Address</label>
+                  <div class="col col-md-5">
+                     <input type="tel" class="form-control" id="address2" name="state" placeholder="State/Province">
+                  </div>
+                  <div class="col col-md-3">
+                     <input type="tel" class="form-control" id="city2" name="city" placeholder="City">
+                  </div>
+                  <div class="col col-md-2">
+                     <input type="tel" class="form-control" id="pin2" name="pin" placeholder="Pin">
+                  </div>
+               </div>
+               <div class="form-group row"></div>
+            </form>
+         </div>
+         <div class="modal-footer">
+            <div class="container text-center">
+               <div class="col-12 col-sm "> <a class="btn btn-secondary" data-dismiss="modal" type="button" role="button"><span class="fa fa-close">Cancel</span></a>
+                  <a class="btn btn-success" data-toggle="modal" type="submit" role="button"><span class="fa fa-check">Order</span></a>
+                  <input style="width: 50px" type="number" id="copies1" name="copies" value="1" step="1">&times;
+                  <input style="width: 60px" type="tel" id="copies2" name="copies1" value="500">
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- Application content starts here -->
+<header class="jumbotron">
+   <div class="container">
+      <div class="row row-header">
+         <div class="col-12 col-sm-6">
+            <h1>Kitab.com</h1>
+            <h2>Kitab.com is the fastest way to compare book prices and buy books from online book sellers in India.</h2>
+         </div>
+         <div class="col-12 col-sm-3 align-self-center">
+            <img src="../../static/BookWebApp/img/icons8-book-96.png" class="img-fluid" alt="logo">
+         </div>
+         <div class="col-12 col-sm align-self-center"> <a class="btn btn-warning" data-toggle="modal" data-target="#loginModal" role="button"><span class="fa fa-sign-in">Login</span></a>
+            <a class="btn btn-warning" data-toggle="modal" data-target="#registerModal" role="button"><span class="fa fa-registered">Register</span> </a>
+         </div>
+      </div>
+   </div>
+</header>
+<!-- Card 1 goes here -->
+<div class="container" style="padding-top: 20px">
+   <div class="input-group md-form form-sm form-2 pl-0">
+      <input class="form-control my-0 py-1" type="text" placeholder="Search for Title, Author or Publisher....." aria-label="Search">
+      <div class="input-group-append">
+         <button class="btn btn-info" type="submit"><span class="fa fa-search"></span>Search</button>
+      </div>
+   </div>
+</div>
+<div class="container" style="padding-bottom: 20px; padding-top: 20px">
+   <div class="card text-center">
+      <div class="card-header bg-primary text-white"> <strong><span class="fa fa-star"></span> Kitab Exclusive</strong>  <small> 25% off</small>
+      </div>
+      <div class="card-body">
+         <h5 class="card-title"><img src="../../static/BookWebApp/img/icons8-book-96.png" alt="Title"></h5>
+         <div class="col-12">
+            <div class="table-responsive">
+               <table class="table table-hover">
+                  <thead>
+                     <tr>
+                        <th scope="col"><span class="fa fa-book"></span> Title</th>
+                        <th scope="col"><span class="fa fa-user"></span> Author</th>
+                        <th scope="col"><span class="fa fa-newspaper-o"></span> Publisher</th>
+                        <th scope="col"><span class="fa fa-money"></span> Price ₹</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>5 AM Club</td>
+                        <td>
+                           <img src="../../static/BookWebApp/img/icons8-stephen-king-50.png" alt="Author" style="width: 50px">Robin Sharma
+                        </td>
+                        <td>Harper Collins</td>
+                        <td>500</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+         <p class="card-text"><span class="fa fa-quote-left"></span>  <i><strong>Own your morning. Elevate your life.<span class="fa fa-quote-right"></span></strong></i>
+            <br>Part manifesto for mastery, part playbook for genius-grade productivity and part companion for a life lived beautifully, the 5 am club is a work that will transform your life. Forever.Legendary leadership and elite performance expert Robin Sharma introduced The 5 AM Club concept over twenty years ago, based on a revolutionary morning routine that has helped his clients maximize their productivity, activate their best health and bulletproof their serenity in this age of overwhelming complexity.
+         </p>
+         <a href="#" class="btn btn-warning">ADD to Cart <span class="fa fa-cart-plus"></span></a>
+         <button data-toggle="modal" data-target="#orderModal" class="btn btn-success">ORDER <span class="fa fa-check"></span>
+         </button>
+      </div>
+      <div class="card-footer bg-dark text-white text-center">
+         <strong><span class="fa fa-truck"></span> 2 day delivery</strong>  <small>Guaranteed*</small>
+         <p2>Price includes GST*</p2>
+      </div>
+   </div>
+</div>
+<!-- Card 2 goes here -->
+<div class="container" style="padding-bottom: 20px; padding-top: 20px">
+   <div class="card text-center">
+      <div class="card-header bg-primary text-white"> <strong><span class="fa fa-star"></span> Kitab Exclusive</strong>  <small> 25% off</small>
+      </div>
+      <div class="card-body">
+         <h5 class="card-title"><img src="../../static/BookWebApp/img/icons8-book-96.png" alt="Title"></h5>
+         <div class="col-12">
+            <div class="table-responsive">
+               <table class="table table-hover">
+                  <thead>
+                     <tr>
+                        <th scope="col"><span class="fa fa-book"></span> Title</th>
+                        <th scope="col"><span class="fa fa-user"></span> Author</th>
+                        <th scope="col"><span class="fa fa-newspaper-o"></span> Publisher</th>
+                        <th scope="col"><span class="fa fa-money"></span> Price ₹</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>Sacred Games</td>
+                        <td>
+                           <img src="../../static/BookWebApp/img/icons8-stephen-king-50.png" alt="Author" style="width: 50px">Vikram Chandra
+                        </td>
+                        <td>Harper Collins</td>
+                        <td>500</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+         <p class="card-text"><span class="fa fa-quote-left"></span>  <i><strong> Aaiyejhavnaya </strong></i><span class="fa fa-quote-right"></span>
+            <br>This is a sprawling, magnificent story of friendship and betrayal, of terrible violence, of an astonishing modern city and its dark side. Drawing on the best of Victorian fiction, mystery novels, Bollywood movies and Chandra’s years of first-hand research on the streets of Mumbai, Sacred Games reads like a pot boiling page-turner but resonates with the intelligence and emotional depth of the best of literature.
+         </p>
+         <a href="#" class="btn btn-warning">ADD to Cart <span class="fa fa-cart-plus"></span></a>
+         <a href="#" data-toggle="modal" data-target="#orderModal" class="btn btn-success">ORDER <span class="fa fa-check"></span></a>
+      </div>
+      <div class="card-footer bg-dark text-white text-center">
+         <strong><span class="fa fa-truck"></span> 2 day delivery</strong>  <small>Guaranteed*</small>
+         <p2>Price includes GST*</p2>
+      </div>
+   </div>
+</div>
+<!-- Card 3 goes here -->
+<div class="container" style="padding-bottom: 20px; padding-top: 20px">
+   <div class="card text-center">
+      <div class="card-header bg-primary text-white"> <strong><span class="fa fa-star"></span> Kitab Exclusive</strong>  <small> 25% off</small>
+      </div>
+      <div class="card-body">
+         <h5 class="card-title"><img src="../../static/BookWebApp/img/icons8-book-96.png" alt="Title"></h5>
+         <div class="col-12">
+            <div class="table-responsive">
+               <table class="table table-hover">
+                  <thead>
+                     <tr>
+                        <th scope="col"><span class="fa fa-book"></span> Title</th>
+                        <th scope="col"><span class="fa fa-user"></span> Author</th>
+                        <th scope="col"><span class="fa fa-newspaper-o"></span> Publisher</th>
+                        <th scope="col"><span class="fa fa-money"></span> Price ₹</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>Rich Dad Poor Dad</td>
+                        <td>
+                           <img src="../../static/BookWebApp/img/icons8-stephen-king-50.png" alt="Author" style="width: 50px">Robert Kiyosaki
+                        </td>
+                        <td>Warner Book Ed</td>
+                        <td>500</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+         <p class="card-text"><span class="fa fa-quote-left"></span>  <i><strong>A winning strategy must include losing.</strong></i>  <span class="fa fa-quote-right"></span>
+            <br>It has since become the #1 Personal Finance book of all time... translated into dozens of languages and sold around the world.The book explodes the myth that you need to earn a high income to be rich and explains the difference between working for money and having your money work for you.
+         </p>
+         <a href="#" class="btn btn-warning">ADD to Cart <span class="fa fa-cart-plus"></span></a>
+         <a href="#" data-toggle="modal" data-target="#orderModal" class="btn btn-success">ORDER <span class="fa fa-check"></span></a>
+      </div>
+      <div class="card-footer bg-dark text-white text-center">
+         <strong><span class="fa fa-truck"></span> 2 day delivery</strong>  <small>Guaranteed*</small>
+         <p2>Price includes GST*</p2>
+      </div>
+   </div>
+</div>
+<!-- Card 4 goes here -->
+<div class="container" style="padding-bottom: 20px; padding-top: 20px">
+   <div class="card text-center">
+      <div class="card-header bg-primary text-white"> <strong><span class="fa fa-star"></span> Kitab Exclusive</strong>  <small> 25% off</small>
+      </div>
+      <div class="card-body">
+         <h5 class="card-title"><img src="../../static/BookWebApp/img/icons8-book-96.png" alt="Title"></h5>
+         <div class="col-12">
+            <div class="table-responsive">
+               <table class="table table-hover">
+                  <thead>
+                     <tr>
+                        <th scope="col"><span class="fa fa-book"></span> Title</th>
+                        <th scope="col"><span class="fa fa-user"></span> Author</th>
+                        <th scope="col"><span class="fa fa-newspaper-o"></span> Publisher</th>
+                        <th scope="col"><span class="fa fa-money"></span> Price ₹</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>Hints for Self-Culture</td>
+                        <td>
+                           <img src="../../static/BookWebApp/img/icons8-stephen-king-50.png" alt="Author" style="width: 50px">Lala Har Dayal
+                        </td>
+                        <td>Jaico Publications</td>
+                        <td>500</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+         <p class="card-text"><span class="fa fa-quote-left"></span>  <i><strong>And ‘tis my faith that every flower Enjoys the air it breathes.</strong></i>  <span class="fa fa-quote-right"></span>
+            <br>Hints For Self Culture helps in an overall development of the human personality: intellectual, physical, ethical and esthetical. By discussing the different aspects of life, Har Dayal propagates the word of rationalism among youth. The book will help you to make most out of life and help you develop a powerful personality.
+         </p>
+         <a href="#" class="btn btn-warning">ADD to Cart <span class="fa fa-cart-plus"></span></a>
+         <a href="#" data-toggle="modal" data-target="#orderModal" class="btn btn-success">ORDER <span class="fa fa-check"></span></a>
+      </div>
+      <div class="card-footer bg-dark text-white text-center">
+         <strong><span class="fa fa-truck"></span> 2 day delivery</strong>  <small>Guaranteed*</small>
+         <p2>Price includes GST*</p2>
+      </div>
+   </div>
+</div>
+<!-- Card 5 goes here -->
+<div class="container" style="padding-bottom: 20px; padding-top: 20px">
+   <div class="card text-center">
+      <div class="card-header bg-primary text-white"> <strong><span class="fa fa-star"></span> Kitab Exclusive</strong>  <small> 25% off</small>
+      </div>
+      <div class="card-body">
+         <h5 class="card-title"><img src="../../static/BookWebApp/img/icons8-book-96.png" alt="Title"></h5>
+         <div class="col-12">
+            <div class="table-responsive">
+               <table class="table table-hover">
+                  <thead>
+                     <tr>
+                        <th scope="col"><span class="fa fa-book"></span> Title</th>
+                        <th scope="col"><span class="fa fa-user"></span> Author</th>
+                        <th scope="col"><span class="fa fa-newspaper-o"></span> Publisher</th>
+                        <th scope="col"><span class="fa fa-money"></span> Price ₹</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>2 states: The Story of My Marriage</td>
+                        <td>
+                           <img src="../../static/BookWebApp/img/icons8-stephen-king-50.png" alt="Author" style="width: 50px">Chetan Bhagat
+                        </td>
+                        <td>Rupa Publications</td>
+                        <td>500</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+         <p class="card-text"><span class="fa fa-quote-left"></span>  <i><strong>Jealousy is a rather enjoyable emotion to watch.</strong></i>  <span class="fa fa-quote-right"></span>
+            <br>Adapted as a hit film, this book is the fourth in Bhagat’s list of novels and also the fourth one to be adapted as a movie. This fun-filled love story that gets complicated when the question of marriage comes up, is a loose adaptation of Chetan Bhagat’s own marriage.
+         </p>
+         <a href="#" class="btn btn-warning">ADD to Cart <span class="fa fa-cart-plus"></span></a>
+         <a href="#" data-toggle="modal" data-target="#orderModal" class="btn btn-success">ORDER <span class="fa fa-check"></span></a>
+      </div>
+      <div class="card-footer bg-dark text-white text-center">
+         <strong><span class="fa fa-truck"></span> 2 day delivery</strong>  <small>Guaranteed*</small>
+         <p2>Price includes GST*</p2>
+      </div>
+   </div>
+</div>
+<!-- Card 6 goes here -->
+<div class="container" style="padding-bottom: 20px; padding-top: 20px">
+   <div class="card text-center">
+      <div class="card-header bg-primary text-white"> <strong><span class="fa fa-star"></span> Kitab Exclusive</strong>  <small> 25% off</small>
+      </div>
+      <div class="card-body">
+         <h5 class="card-title"><img src="../../static/BookWebApp/img/icons8-book-96.png" alt="Title"></h5>
+         <div class="col-12">
+            <div class="table-responsive">
+               <table class="table table-hover">
+                  <thead>
+                     <tr>
+                        <th scope="col"><span class="fa fa-book"></span> Title</th>
+                        <th scope="col"><span class="fa fa-user"></span> Author</th>
+                        <th scope="col"><span class="fa fa-newspaper-o"></span> Publisher</th>
+                        <th scope="col"><span class="fa fa-money"></span> Price ₹</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>Python GUI Programming Cookbook</td>
+                        <td>
+                           <img src="../../static/BookWebApp/img/icons8-stephen-king-50.png" alt="Author" style="width: 50px">Burkhard Meier
+                        </td>
+                        <td>Packt</td>
+                        <td>500</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+         <p class="card-text"> <i><strong>Lets do it the Python way</strong></i>  <span class="fa fa-quote-right"></span>
+            <br>This book will guide you through the very basics of creating a fully functional GUI in Python with only a few lines of code. Each and every recipe adds more widgets to the GUIs we are creating. While the cookbook recipes all stand on their own, there is a common theme running through all of them.
+         </p>
+         <a href="#" class="btn btn-warning">ADD to Cart <span class="fa fa-cart-plus"></span></a>
+         <a href="#" data-toggle="modal" data-target="#orderModal" class="btn btn-success">ORDER <span class="fa fa-check"></span></a>
+      </div>
+      <div class="card-footer bg-dark text-white text-center">
+         <strong><span class="fa fa-truck"></span> 2 day delivery</strong>  <small>Guaranteed*</small>
+         <p2>Price includes GST*</p2>
+      </div>
+   </div>
+</div>
+<!-- Card 7 goes here -->
+<div class="container" style="padding-bottom: 20px; padding-top: 20px">
+   <div class="card text-center">
+      <div class="card-header bg-primary text-white"> <strong><span class="fa fa-star"></span> Kitab Exclusive</strong>  <small> 25% off</small>
+      </div>
+      <div class="card-body">
+         <h5 class="card-title"><img src="../../static/BookWebApp/img/icons8-book-96.png" alt="Title"></h5>
+         <div class="col-12">
+            <div class="table-responsive">
+               <table class="table table-hover">
+                  <thead>
+                     <tr>
+                        <th scope="col"><span class="fa fa-book"></span> Title</th>
+                        <th scope="col"><span class="fa fa-user"></span> Author</th>
+                        <th scope="col"><span class="fa fa-newspaper-o"></span> Publisher</th>
+                        <th scope="col"><span class="fa fa-money"></span> Price ₹</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>Let Us C++</td>
+                        <td>
+                           <img src="../../static/BookWebApp/img/icons8-stephen-king-50.png" alt="Author" style="width: 50px">Yashwant Kanetkar
+                        </td>
+                        <td>BPB Publications</td>
+                        <td>500</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+         <p class="card-text"><span class="fa fa-quote-left"></span>  <i><strong>Let Us C++.</strong></i>  <span class="fa fa-quote-right"></span>
+            <br>Let Us C++ is one of the best books ever written on the programming language C++. The book comes with a CD-ROM that has codes, demos, executables and compliers. MATLAB examples have also been added to the book.
+         </p>
+         <a href="#" class="btn btn-warning">ADD to Cart <span class="fa fa-cart-plus"></span></a>
+         <a href="#" data-toggle="modal" data-target="#orderModal" class="btn btn-success">ORDER <span class="fa fa-check"></span></a>
+      </div>
+      <div class="card-footer bg-dark text-white text-center">
+         <strong><span class="fa fa-truck"></span> 2 day delivery</strong>  <small>Guaranteed*</small>
+         <p2>Price includes GST*</p2>
+      </div>
+   </div>
+</div>
+<!-- Card 8 goes here -->
+<div class="container" style="padding-bottom: 20px; padding-top: 20px">
+   <div class="card text-center">
+      <div class="card-header bg-primary text-white"> <strong><span class="fa fa-star"></span> Kitab Exclusive</strong>  <small> 25% off</small>
+      </div>
+      <div class="card-body">
+         <h5 class="card-title"><img src="../../static/BookWebApp/img/icons8-book-96.png" alt="Title"></h5>
+         <div class="col-12">
+            <div class="table-responsive">
+               <table class="table table-hover">
+                  <thead>
+                     <tr>
+                        <th scope="col"><span class="fa fa-book"></span> Title</th>
+                        <th scope="col"><span class="fa fa-user"></span> Author</th>
+                        <th scope="col"><span class="fa fa-newspaper-o"></span> Publisher</th>
+                        <th scope="col"><span class="fa fa-money"></span> Price ₹</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>The 3 Mistakes of My Life</td>
+                        <td>
+                           <img src="../../static/BookWebApp/img/icons8-stephen-king-50.png" alt="Author" style="width: 50px">Chetan Bhagat
+                        </td>
+                        <td>Rupa Publications</td>
+                        <td>500</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+         <p class="card-text"><span class="fa fa-quote-left"></span>  <i><strong>Admiration passes, love endures.</strong></i>  <span class="fa fa-quote-right"></span>
+            <br>The 3 Mistakes of my life is the third novel written by eminent Indian Author Chetan Bhagat. Based on cricket, business and religion, the novel is set against the backdrop of beautiful city Ahmedabad. Revolving around three young Indian boys Omi, Ishaan and Govind, the book goes on to narrate how the three are trying their best to make ends meet in the city.
+         </p>
+         <a href="#" class="btn btn-warning">ADD to Cart <span class="fa fa-cart-plus"></span></a>
+         <a href="#" data-toggle="modal" data-target="#orderModal" class="btn btn-success">ORDER <span class="fa fa-check"></span></a>
+      </div>
+      <div class="card-footer bg-dark text-white text-center">
+         <strong><span class="fa fa-truck"></span> 2 day delivery</strong>  <small>Guaranteed*</small>
+         <p2>Price includes GST*</p2>
+      </div>
+   </div>
+</div>
+<!-- Card 9 goes here -->
+<div class="container" style="padding-bottom: 20px; padding-top: 20px">
+   <div class="card text-center">
+      <div class="card-header bg-primary text-white"> <strong><span class="fa fa-star"></span> Kitab Exclusive</strong>  <small> 25% off</small>
+      </div>
+      <div class="card-body">
+         <h5 class="card-title"><img src="../../static/BookWebApp/img/icons8-book-96.png" alt="Title"></h5>
+         <div class="col-12">
+            <div class="table-responsive">
+               <table class="table table-hover">
+                  <thead>
+                     <tr>
+                        <th scope="col"><span class="fa fa-book"></span> Title</th>
+                        <th scope="col"><span class="fa fa-user"></span> Author</th>
+                        <th scope="col"><span class="fa fa-newspaper-o"></span> Publisher</th>
+                        <th scope="col"><span class="fa fa-money"></span> Price ₹</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>How to Win Friends and Influence People</td>
+                        <td>
+                           <img src="../../static/BookWebApp/img/icons8-stephen-king-50.png" alt="Author" style="width: 50px">Dale Carnegie
+                        </td>
+                        <td>Simon and Schuster</td>
+                        <td>500</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+         <p class="card-text"><span class="fa fa-quote-left"></span>  <i><strong>Only knowledge that is used sticks in your mind.</strong></i>  <span class="fa fa-quote-right"></span>
+            <br>How to win friends and influence people’ is a self-help book which is the pioneer of this genre. Written by Dale Carnegie and published in 1936, it has sold over 30 million copies. It has been edited and re-printed several times. This is the 2004 edition of this book.
+         </p>
+         <a href="#" class="btn btn-warning">ADD to Cart <span class="fa fa-cart-plus"></span></a>
+         <a href="#" data-toggle="modal" data-target="#orderModal" class="btn btn-success">ORDER <span class="fa fa-check"></span></a>
+      </div>
+      <div class="card-footer bg-dark text-white text-center">
+         <strong><span class="fa fa-truck"></span> 2 day delivery</strong>  <small>Guaranteed*</small>
+         <p2>Price includes GST*</p2>
+      </div>
+   </div>
+</div>
+<!-- Card 10 goes here -->
+<div class="container" style="padding-bottom: 20px; padding-top: 20px">
+   <div class="card text-center">
+      <div class="card-header bg-primary text-white"> <strong><span class="fa fa-star"></span> Kitab Exclusive</strong>  <small> 25% off</small>
+      </div>
+      <div class="card-body">
+         <h5 class="card-title"><img src="../../static/BookWebApp/img/icons8-book-96.png" alt="Title"></h5>
+         <div class="col-12">
+            <div class="table-responsive">
+               <table class="table table-hover">
+                  <thead>
+                     <tr>
+                        <th scope="col"><span class="fa fa-book"></span> Title</th>
+                        <th scope="col"><span class="fa fa-user"></span> Author</th>
+                        <th scope="col"><span class="fa fa-newspaper-o"></span> Publisher</th>
+                        <th scope="col"><span class="fa fa-money"></span> Price ₹</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>The Alchemist</td>
+                        <td>
+                           <img src="../../static/BookWebApp/img/icons8-stephen-king-50.png" alt="Author" style="width: 50px">Paulo Coelho
+                        </td>
+                        <td>Harper Collins</td>
+                        <td>500</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+         <p class="card-text"><span class="fa fa-quote-left"></span>  <i><strong>Every blessing ignored becomes a curse.</strong></i>  <span class="fa fa-quote-right"></span>
+            <br>The Alchemist by Paulo Coelho continues to change the lives of its readers forever. With more than two million copies sold around the world, The Alchemist has established itself as a modern classic, universally admired.
+         </p>
+         <a href="#" class="btn btn-warning">ADD to Cart <span class="fa fa-cart-plus"></span></a>
+         <a href="#" data-toggle="modal" data-target="#orderModal" class="btn btn-success">ORDER <span class="fa fa-check"></span></a>
+      </div>
+      <div class="card-footer bg-dark text-white text-center">
+         <strong><span class="fa fa-truck"></span> 2 day delivery</strong>  <small>Guaranteed*</small>
+         <p2>Price includes GST*</p2>
+      </div>
+   </div>
+</div>
+<!-- Application content ends here -->{% endblock %}
+

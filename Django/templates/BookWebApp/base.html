@@ -1,0 +1,75 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Kitab.com</title>
+	<link rel="icon" href="{% static 'BookWebApp/img/icons8-book-48.png' %}" type="image/x-icon">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta property="og:title" content="">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+	<link rel="manifest" href="site.webmanifest">
+	<link rel="apple-touch-icon" href="{% static 'BookWebApp/img/icons8-book-48.png' %}">
+	<!-- Place favicon.ico in the root directory -->
+	<!-- Local CSS -->
+	<link rel="stylesheet" href="{% static 'BookWebApp/css/normalize.css' %}">
+	<link rel="stylesheet" href="{% static 'BookWebApp/css/main.css' %}">
+	<!-- Bootstrap CSS only -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<!-- Font Awesome CSS Link -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="theme-color" content="#fafafa">
+</head>
+
+<body>{% block content %} {% endblock %}
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-sm-5">
+					<h5>Our Address</h5>
+					<address class="address">
+                     161, B-4, Ground Floor,<br>Gulmohar House,<br> Yusuf Sarai Community Centre,<br> New Delhi – 110049<br>
+                     <i class="fa fa-phone"></i>.: +91 1234 5678<br>
+                     <i class="fa fa-fax"></i>: +91 8765 4321<br>
+                     <i class="fa fa-envelope"></i>: <a href="mailto:contact@kitab.net">contact@kitab.com</a>
+                  </address>
+				</div>
+				<div class="col-12 col-sm-4 align-self-right">
+					<div class="text-center"> <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
+						<a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
+						<a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
+						<a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
+						<a class="btn btn-social-icon btn-google" href="http://youtube.com/"><i class="fa fa-youtube"></i></a>
+						<a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-auto">
+					<p>© Copyright 2020 kitab.com</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Local JS -->
+	<script src="{% static 'BookWebApp/js/vendor/modernizr-3.11.2.min.js' %}"></script>
+	<script src="{% static 'BookWebApp/js/plugins.js' %}"></script>
+	<script src="{% static 'BookWebApp//js/main.js' %}"></script>
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+	<script>
+		window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+		         ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+	</script>
+	<script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>
